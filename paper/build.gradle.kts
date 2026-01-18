@@ -1,5 +1,5 @@
 plugins {
-	id("tehlib.java-conventions")
+	id("agna.java-conventions")
 }
 
 repositories {
@@ -8,6 +8,6 @@ repositories {
 }
 
 dependencies {
-	api(project(":tehlib-configurate"))
+	api(project(":agna-configurate"))
 	compileOnly("io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT")
 }

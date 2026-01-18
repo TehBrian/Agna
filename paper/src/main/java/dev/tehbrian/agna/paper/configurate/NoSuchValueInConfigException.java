@@ -1,4 +1,4 @@
-package dev.tehbrian.tehlib.paper.configurate;
+package dev.tehbrian.agna.paper.configurate;
 
 import java.io.Serial;
 

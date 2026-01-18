@@ -1,4 +1,4 @@
 @NullMarked
-package dev.tehbrian.tehlib.paper;
+package dev.tehbrian.agna.configurate;
 
 import org.jspecify.annotations.NullMarked;

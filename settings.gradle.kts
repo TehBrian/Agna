@@ -1,4 +1,4 @@
-rootProject.name = "tehlib"
+rootProject.name = "agna"
 
 projects(
 	"configurate",
@@ -9,6 +9,6 @@ fun projects(vararg names: String) {
 	include(*names)
 
 	names.forEach {
-		project(":$it").name = "tehlib-$it"
+		project(":$it").name = "agna-$it"
 	}
 }

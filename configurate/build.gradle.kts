@@ -1,5 +1,5 @@
 plugins {
-	id("tehlib.java-conventions")
+	id("agna.java-conventions")
 }
 
 repositories {

@@ -1,4 +1,4 @@
-package dev.tehbrian.tehlib.configurate;
+package dev.tehbrian.agna.configurate;
 
 public interface DataConfig<W extends ConfigurateWrapper<?>, D> extends Config<W> {
 

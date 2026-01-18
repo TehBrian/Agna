@@ -18,16 +18,16 @@ indra {
 		target(21)
 	}
 
-	github("TehBrian", "tehlib")
+	github("TehBrian", "Agna")
 
 	mitLicense()
 
-	publishReleasesTo("thbn", "https://repo.thbn.me/releases")
-	publishSnapshotsTo("thbn", "https://repo.thbn.me/snapshots")
+	publishReleasesTo("tehbrian", "https://repo.tehbrian.dev/releases")
+	publishSnapshotsTo("tehbrian", "https://repo.tehbrian.dev/snapshots")
 
 	configurePublications {
 		pom {
-			url.set("github.com/TehBrian/tehlib")
+			url.set("github.com/TehBrian/Agna")
 
 			developers {
 				developer {
@@ -38,9 +38,9 @@ indra {
 			}
 
 			scm {
-				connection.set("scm:git:git://github.com/TehBrian/tehlib.git")
-				developerConnection.set("scm:git:ssh://github.com/TehBrian/tehlib.git")
-				url.set("github.com/TehBrian/tehlib.git")
+				connection.set("scm:git:git://github.com/TehBrian/Agna.git")
+				developerConnection.set("scm:git:ssh://github.com/TehBrian/Agna.git")
+				url.set("github.com/TehBrian/Agna.git")
 			}
 		}
 	}

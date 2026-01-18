@@ -1,4 +1,4 @@
-package dev.tehbrian.tehlib.configurate;
+package dev.tehbrian.agna.configurate;
 
 import org.spongepowered.configurate.CommentedConfigurationNode;
 

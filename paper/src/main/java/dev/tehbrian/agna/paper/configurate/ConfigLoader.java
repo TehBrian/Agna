@@ -1,6 +1,6 @@
-package dev.tehbrian.tehlib.paper.configurate;
+package dev.tehbrian.agna.paper.configurate;
 
-import dev.tehbrian.tehlib.configurate.Config;
+import dev.tehbrian.agna.configurate.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.spongepowered.configurate.ConfigurateException;
 

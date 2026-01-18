@@ -1,4 +1,4 @@
-package dev.tehbrian.tehlib.paper;
+package dev.tehbrian.agna.paper;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
