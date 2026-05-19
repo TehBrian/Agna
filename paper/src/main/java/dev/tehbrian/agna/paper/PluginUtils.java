@@ -1,6 +1,5 @@
 package dev.tehbrian.agna.paper;
 
-import dev.tehbrian.agna.configurate.RawConfig;
 import dev.tehbrian.tehlib.paper.EmptyTabCompleter;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
@@ -9,7 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
