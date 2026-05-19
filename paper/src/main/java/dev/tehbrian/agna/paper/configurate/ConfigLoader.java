@@ -113,8 +113,11 @@ public final class ConfigLoader {
 		}
 
 		public static Loadable ofVersioned(final String filename, final Config<?> config, final int version) {
-			final var split = filename.split("\\.");
-			return new Loadable(split[0], split[1], config, version);
+			final int lastDot = filename.lastIndexOf('.');
+			if (lastDot == -1) {
+				throw new IllegalArgumentException("Filename must contain a dot.");
+			}
+			return new Loadable(filename.substring(0, lastDot), filename.substring(lastDot + 1), config, version);
 		}
 
 		public String filenameBase() {
