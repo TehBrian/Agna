@@ -44,39 +44,6 @@ public abstract class PluginUtils {
 		}
 	}
 
-	public void ensureConfig(final RawConfig<?> config) {
-
-	}
-
-	public void archiveResource(final JavaPlugin plugin, final String filename) {
-		final Path old = plugin.getDataPath().resolve(filename);
-
-		if (!Files.exists(old)) {
-			return;
-		}
-
-		final String root = filename.substring(0, filename.lastIndexOf("."));
-		final String ext = filename.substring(filename.lastIndexOf(".") + 1);
-
-		for (int i = 0; i < 1000; i++) {
-			final Path goal = plugin.getDataPath().resolve(root + ".old-" + i + "." + ext);
-
-			if (Files.exists(goal)) {
-				continue;
-			}
-
-			try {
-				Files.move(old, goal);
-			} catch (final IOException e) {
-				plugin.getSLF4JLogger().warn("Failed to archive file '{}' to '{}'.", old, goal, e);
-				return;
-			}
-
-			plugin.getSLF4JLogger().info("Archived file '{}' to '{}'.", old, goal);
-			return;
-		}
-	}
-
 	/**
 	 * Disables this plugin.
 	 */
