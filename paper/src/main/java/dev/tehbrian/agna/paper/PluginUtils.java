@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * Utility methods for the main plugin class.
  */
-public abstract class PluginUtils {
+public class PluginUtils {
 
 	private PluginUtils() {
 	}
@@ -22,7 +22,7 @@ public abstract class PluginUtils {
 	/**
 	 * Registers listeners to a plugin.
 	 */
-	public void registerListeners(final JavaPlugin plugin, final Listener... listeners) {
+	public static void registerListeners(final JavaPlugin plugin, final Listener... listeners) {
 		final PluginManager manager = plugin.getServer().getPluginManager();
 		for (final Listener listener : listeners) {
 			manager.registerEvents(listener, plugin);
@@ -34,7 +34,7 @@ public abstract class PluginUtils {
 	 *
 	 * @param filename the resource filename
 	 */
-	public void saveResourceSilently(final JavaPlugin plugin, final String filename) {
+	public static void saveResourceSilently(final JavaPlugin plugin, final String filename) {
 		final Path outPath = plugin.getDataPath().resolve(filename);
 		if (!Files.exists(outPath)) {
 			plugin.saveResource(filename, false);
@@ -44,7 +44,7 @@ public abstract class PluginUtils {
 	/**
 	 * Disables this plugin.
 	 */
-	public void disableSelf(final JavaPlugin plugin) {
+	public static void disableSelf(final JavaPlugin plugin) {
 		plugin.getServer().getPluginManager().disablePlugin(plugin);
 	}
 
@@ -55,7 +55,7 @@ public abstract class PluginUtils {
 	 * @param executor  the command executor
 	 * @param completer the tab completer
 	 */
-	public void registerCommand(
+	public static void registerCommand(
 			final JavaPlugin plugin,
 			final String name,
 			final CommandExecutor executor,
@@ -73,12 +73,12 @@ public abstract class PluginUtils {
 	 * @param name     the command name
 	 * @param executor the command executor
 	 */
-	public void registerCommand(
+	public static void registerCommand(
 			final JavaPlugin plugin,
 			final String name,
 			final CommandExecutor executor
 	) {
-		this.registerCommand(plugin, name, executor, new EmptyTabCompleter());
+		registerCommand(plugin, name, executor, new EmptyTabCompleter());
 	}
 
 }
