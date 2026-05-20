@@ -1,6 +1,5 @@
 package dev.tehbrian.agna.paper;
 
-import dev.tehbrian.tehlib.paper.EmptyTabCompleter;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
