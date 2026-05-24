@@ -9,11 +9,11 @@ repositories {
 
 dependencies {
 	api(project(":agna-configurate"))
-	compileOnly("com.google.code.gson:gson:2.13.2")
-	compileOnly("io.papermc.paper:paper-api:26.1.2.build.64-stable")
-	testImplementation(platform("org.junit:junit-bom:5.13.4"))
+	compileOnly("com.google.code.gson:gson:2.14.0")
+	compileOnly("io.papermc.paper:paper-api:26.1.2.build.65-stable")
+	testImplementation(platform("org.junit:junit-bom:6.1.0"))
 	testImplementation("org.junit.jupiter:junit-jupiter")
-	testRuntimeOnly("com.google.code.gson:gson:2.13.2")
-	testRuntimeOnly("io.papermc.paper:paper-api:26.1.2.build.64-stable")
+	testRuntimeOnly("com.google.code.gson:gson:2.14.0")
+	testRuntimeOnly("io.papermc.paper:paper-api:26.1.2.build.65-stable")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
