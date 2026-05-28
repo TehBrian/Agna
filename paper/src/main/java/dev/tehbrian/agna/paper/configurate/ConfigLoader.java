@@ -40,10 +40,10 @@ public final class ConfigLoader {
 			} catch (final ConfigurateException e) {
 				this.plugin.getSLF4JLogger().error(
 						"Failed to load config file {}",
-						config.wrapper().path()
+						config.wrapper().path().getFileName()
 				);
 				this.plugin.getSLF4JLogger().error("Please ensure that the config is valid");
-				this.plugin.getSLF4JLogger().error("Printing stack trace:", e);
+				this.plugin.getSLF4JLogger().error("Printing stack trace", e);
 				successful = false;
 				continue;
 			}
@@ -78,7 +78,7 @@ public final class ConfigLoader {
 					Files.move(savePath, archivePath);
 				} catch (final IOException e) {
 					this.plugin.getSLF4JLogger().error("Failed to move the old config");
-					this.plugin.getSLF4JLogger().error("Printing stack trace:", e);
+					this.plugin.getSLF4JLogger().error("Printing stack trace", e);
 					successful = false;
 					continue;
 				}
