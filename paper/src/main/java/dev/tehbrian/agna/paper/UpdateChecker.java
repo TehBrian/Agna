@@ -17,10 +17,15 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.format.DateTimeParseException;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 public final class UpdateChecker {
 
 	private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(10);
+
+	private static final long MIN_DELAY_SECONDS = 5;
+	private static final long MAX_DELAY_SECONDS = 60;
 
 	private final JavaPlugin plugin;
 	private final String modrinthProjectSlug;
@@ -43,9 +48,13 @@ public final class UpdateChecker {
 		final String pluginName = this.plugin.getPluginMeta().getName();
 		final Logger logger = this.plugin.getSLF4JLogger();
 
-		this.plugin.getServer().getScheduler().runTaskAsynchronously(
+		final long delay = ThreadLocalRandom.current().nextLong(MIN_DELAY_SECONDS, MAX_DELAY_SECONDS + 1);
+
+		this.plugin.getServer().getAsyncScheduler().runDelayed(
 				this.plugin,
-				() -> this.checkForUpdatesNow(currentVersion, minecraftVersion, pluginName, logger)
+				(_) -> this.checkForUpdatesNow(currentVersion, minecraftVersion, pluginName, logger),
+				delay,
+				TimeUnit.SECONDS
 		);
 	}
 
