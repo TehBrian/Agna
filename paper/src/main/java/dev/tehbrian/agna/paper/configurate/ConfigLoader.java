@@ -39,9 +39,10 @@ public final class ConfigLoader {
 				config.load();
 			} catch (final ConfigurateException e) {
 				this.plugin.getSLF4JLogger().error(
-						"An error occurred while loading config file {}. Please ensure that the file is valid.",
+						"Failed to load config file {}",
 						config.wrapper().path()
 				);
+				this.plugin.getSLF4JLogger().error("Please ensure that the config is valid");
 				this.plugin.getSLF4JLogger().error("Printing stack trace:", e);
 				successful = false;
 				continue;
@@ -55,7 +56,7 @@ public final class ConfigLoader {
 			final int loadedVersion = config.wrapper().rootNode().node("version").getInt();
 			if (loadedVersion != data.version()) {
 				this.plugin.getSLF4JLogger().warn(
-						"Config {} is versioned {}, but the current version is {}.",
+						"Config {} is versioned {}, but the current version is {}",
 						data.filename(), loadedVersion, data.version()
 				);
 
@@ -69,14 +70,14 @@ public final class ConfigLoader {
 				} while (Files.exists(archivePath));
 
 				this.plugin.getSLF4JLogger().warn(
-						"Regenerating {} and archiving the old config to {}.",
+						"Regenerating {} and archiving the old config as {}",
 						data.filename(), archiveFilename
 				);
 
 				try {
 					Files.move(savePath, archivePath);
 				} catch (final IOException e) {
-					this.plugin.getSLF4JLogger().error("Failed to move the old config.");
+					this.plugin.getSLF4JLogger().error("Failed to move the old config");
 					this.plugin.getSLF4JLogger().error("Printing stack trace:", e);
 					successful = false;
 					continue;
@@ -87,7 +88,7 @@ public final class ConfigLoader {
 		}
 
 		if (successful) {
-			this.plugin.getSLF4JLogger().info("Successfully loaded configuration.");
+			this.plugin.getSLF4JLogger().info("Successfully loaded configuration");
 		}
 		return successful;
 	}
