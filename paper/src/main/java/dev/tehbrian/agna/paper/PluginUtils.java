@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * Utility methods for the main plugin class.
  */
-public class PluginUtils {
+public final class PluginUtils {
 
 	private PluginUtils() {
 	}
