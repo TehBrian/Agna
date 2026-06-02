@@ -116,7 +116,7 @@ public final class ConfigLoader {
 		public static Loadable ofVersioned(final String filename, final Config<?> config, final int version) {
 			final int lastDot = filename.lastIndexOf('.');
 			if (lastDot == -1) {
-				throw new IllegalArgumentException("Filename must contain a dot.");
+				throw new IllegalArgumentException("Filename must contain a dot");
 			}
 			return new Loadable(filename.substring(0, lastDot), filename.substring(lastDot + 1), config, version);
 		}

@@ -60,7 +60,7 @@ public abstract class AbstractLangConfig<W extends ConfigurateWrapper<?>> extend
 
 		if (rawValue == null) {
 			throw new NoSuchValueInConfigException("Attempted to get value at path " + path + " in config "
-					+ wrapper.path().getFileName() + " but found nothing.");
+					+ wrapper.path().getFileName() + " but found nothing");
 		}
 
 		return rawValue;
