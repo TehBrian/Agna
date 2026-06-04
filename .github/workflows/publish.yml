@@ -15,7 +15,6 @@ jobs:
       - name: Check out sources
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
           fetch-tags: true
 
       - name: Set up Java
