@@ -24,6 +24,7 @@ indra {
 
 	publishReleasesTo("tehbrian", "https://repo.tehbrian.dev/releases")
 	publishSnapshotsTo("tehbrian", "https://repo.tehbrian.dev/snapshots")
+	signWithKeyFromProperties("signingKey", "signingPassword")
 
 	configurePublications {
 		pom {
