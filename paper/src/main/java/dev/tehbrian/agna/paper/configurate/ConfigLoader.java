@@ -35,15 +35,7 @@ public final class ConfigLoader {
 			}
 
 			final Config<?> config = data.config();
-			try {
-				config.load();
-			} catch (final ConfigurateException e) {
-				this.plugin.getSLF4JLogger().error(
-						"Failed to load config file {}",
-						config.wrapper().path().getFileName()
-				);
-				this.plugin.getSLF4JLogger().error("Please ensure that the config is valid");
-				this.plugin.getSLF4JLogger().error("Printing stack trace", e);
+			if (!this.loadConfig(config)) {
 				successful = false;
 				continue;
 			}
@@ -84,6 +76,11 @@ public final class ConfigLoader {
 				}
 
 				this.plugin.saveResource(data.filename(), false);
+
+				if (!this.loadConfig(config)) {
+					successful = false;
+					continue;
+				}
 			}
 		}
 
@@ -91,6 +88,21 @@ public final class ConfigLoader {
 			this.plugin.getSLF4JLogger().info("Successfully loaded configuration");
 		}
 		return successful;
+	}
+
+	private boolean loadConfig(final Config<?> config) {
+		try {
+			config.load();
+			return true;
+		} catch (final ConfigurateException e) {
+			this.plugin.getSLF4JLogger().error(
+					"Failed to load config file {}",
+					config.wrapper().path().getFileName()
+			);
+			this.plugin.getSLF4JLogger().error("Please ensure that the config is valid");
+			this.plugin.getSLF4JLogger().error("Printing stack trace", e);
+			return false;
+		}
 	}
 
 	public static final class Loadable {
