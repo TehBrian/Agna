@@ -1,4 +1,4 @@
-name: Publish release build to repo.tehbrian.dev
+name: Publish build to repo.tehbrian.dev
 
 on:
   push:
