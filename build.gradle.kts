@@ -3,5 +3,5 @@ plugins {
 }
 
 group = "dev.tehbrian"
-version = "1.0.6"
+version = "1.1.0"
 description = "An assortment of personal utilities for developing Minecraft server plugins."
