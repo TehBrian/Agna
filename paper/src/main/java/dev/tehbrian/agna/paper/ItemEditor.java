@@ -7,6 +7,7 @@ import io.papermc.paper.datacomponent.item.BannerPatternLayers;
 import io.papermc.paper.datacomponent.item.DyedItemColor;
 import io.papermc.paper.datacomponent.item.ItemLore;
 import io.papermc.paper.datacomponent.item.ResolvableProfile;
+import io.papermc.paper.datacomponent.item.TooltipDisplay;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Color;
@@ -136,6 +137,11 @@ public final class ItemEditor {
 
 	public ItemEditor dyedColor(final Color data) {
 		this.set(DataComponentTypes.DYED_COLOR, DyedItemColor.dyedItemColor(data));
+		return this;
+	}
+
+	public ItemEditor hideTooltip(final boolean data) {
+		this.set(DataComponentTypes.TOOLTIP_DISPLAY, TooltipDisplay.tooltipDisplay().hideTooltip(data).build());
 		return this;
 	}
 
