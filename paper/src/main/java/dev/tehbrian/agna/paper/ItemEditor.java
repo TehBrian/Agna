@@ -8,6 +8,7 @@ import io.papermc.paper.datacomponent.item.DyedItemColor;
 import io.papermc.paper.datacomponent.item.ItemLore;
 import io.papermc.paper.datacomponent.item.ResolvableProfile;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Color;
 import org.bukkit.block.banner.Pattern;
 import org.bukkit.inventory.ItemStack;
@@ -22,6 +23,8 @@ import static com.google.common.base.Predicates.alwaysTrue;
 
 @SuppressWarnings("UnstableApiUsage")
 public final class ItemEditor {
+
+	private static final Component DISABLE_ITALICS = Component.empty().decoration(TextDecoration.ITALIC, false);
 
 	private ItemStack item;
 
@@ -111,7 +114,8 @@ public final class ItemEditor {
 	}
 
 	public ItemEditor lore(final List<Component> data) {
-		this.set(DataComponentTypes.LORE, ItemLore.lore(data));
+		// sidestep default formatting by appending each component to a dummy
+		this.set(DataComponentTypes.LORE, ItemLore.lore(data.stream().map(DISABLE_ITALICS::append).toList()));
 		return this;
 	}
 
