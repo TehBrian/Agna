@@ -9,6 +9,10 @@ group = rootProject.group
 version = rootProject.version
 description = rootProject.description
 
+repositories {
+	maven("https://repo.papermc.io/repository/maven-public/")
+}
+
 dependencies {
 	compileOnly("org.jspecify:jspecify:1.0.0")
 
