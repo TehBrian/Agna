@@ -11,6 +11,9 @@ description = rootProject.description
 
 dependencies {
 	compileOnly("org.jspecify:jspecify:1.0.0")
+
+	compileOnly("io.papermc.paper:paper-api:26.2.build.+")
+	testRuntimeOnly("io.papermc.paper:paper-api:26.2.build.+")
 }
 
 indra {
