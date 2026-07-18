@@ -180,6 +180,23 @@ public final class FluentItem {
 		return this;
 	}
 
+	/**
+	 * A utility method that converts the provided {@code lines} into a
+	 * {@code List} using {@link List#of(Object[])}, and calls
+	 * {@link #lore(List)} using the new {@code List} as the argument.
+	 * <p>
+	 * P.S. This is ripped straight from corn's AbstractItemBuilder, which
+	 * I wrote about 4 years ago, which is why this Javadoc is the way it is.
+	 * <p>
+	 * P.P.S. Brian, never write Javadocs like this stupid dumb fucking one again.
+	 *
+	 * @param lines the lines of the lore
+	 * @return the builder
+	 */
+	public FluentItem loreList(final Component... lines) {
+		return this.lore(List.of(lines));
+	}
+
 	public FluentItem textures(final String data) {
 		this.set(
 				DataComponentTypes.PROFILE,
