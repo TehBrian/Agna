@@ -1,5 +1,5 @@
 plugins {
-	id("io.github.ben-manes.versions") version "0.63.1"
+	id("io.github.ben-manes.versions") version "0.65.0"
 }
 
 group = "dev.tehbrian"
